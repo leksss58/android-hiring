@@ -56,6 +56,11 @@ class MainActivity : AppCompatActivity() {
             .launchIn(lifecycleScope)
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+    }
+
     private fun setSendMessage() {
         binding.submitButton.setOnClickListener {
             viewModel.sendMessage()
